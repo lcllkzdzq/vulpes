@@ -13,7 +13,7 @@
 
 using namespace std;
 
-namespace vuples {
+namespace vulpes {
     template <typename T>
     T random(T min, T max) {
         random_device rd;
