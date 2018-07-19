@@ -20,6 +20,7 @@ namespace vulpes {
         void bubble_sort(vector<int>& array);
         void merge_sort(vector<int>& array);
         void heap_sort(vector<int>& array);
+        void quick_sort(vector<int>& array);
     }
 }
 
