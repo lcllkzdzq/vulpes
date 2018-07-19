@@ -1,4 +1,13 @@
+//
+//  threadpool.hpp
+//  vulpes
+//
+//  Created by lcl on 2018/7/19.
+//  Copyright © 2018 lcl. All rights reserved.
+//
+
 #include "task.hpp"
+#include "sync_queue.hpp"
 
 #include <vector>
 #include <thread>
@@ -13,8 +22,13 @@ namespace vuples {
         
         void add_task(vuples::task& task);
     private:
-        vector<thread> threads;
+        vector<thread> _threads;
+        sync_queue<vuples::task> _work_queue;
+        
         static void work_thread(threadpool* pool);
-        void join_all();
+        void enqueue(vuples::task& task);
+        void close();
+        void join();
+
     };
 }
